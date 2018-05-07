@@ -1,12 +1,10 @@
-/*
- * elevator sstf
- */
 #include <linux/blkdev.h>
 #include <linux/elevator.h>
 #include <linux/bio.h>
 #include <linux/module.h>
 #include <linux/slab.h>
 #include <linux/init.h>
+
 
 struct sstf_data {
 	struct list_head queue;
@@ -18,6 +16,7 @@ static void sstf_merged_requests(struct request_queue *q, struct request *rq,
 {
 	list_del_init(&next->queuelist);
 }
+
 
 static int sstf_dispatch(struct request_queue *q, int force)
 {
@@ -175,7 +174,7 @@ module_init(sstf_init);
 module_exit(sstf_exit);
 
 
-MODULE_AUTHOR("Chao-Ting Wen, Chih-Hsiang Wang, .Suwadi");
+MODULE_AUTHOR("QIAN SUN JIAJIE LI HUIFEI BAI");
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("SSTF IO scheduler");
 
