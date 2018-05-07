@@ -18,6 +18,8 @@ static void noop_merged_requests(struct request_queue *q, struct request *rq,
 	list_del_init(&next->queuelist);
 }
 
+
+
 static int noop_dispatch(struct request_queue *q, int force)
 {
 	struct noop_data *nd = q->elevator->elevator_data;
@@ -58,6 +60,8 @@ noop_latter_request(struct request_queue *q, struct request *rq)
 		return NULL;
 	return list_entry(rq->queuelist.next, struct request, queuelist);
 }
+
+
 
 static int noop_init_queue(struct request_queue *q, struct elevator_type *e)
 {
